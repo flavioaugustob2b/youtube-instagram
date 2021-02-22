@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import options from '../../../assets/image/options.png';
 import like from '../../../assets/image/like.png';
 import comment from '../../../assets/image/comment.png';
@@ -129,13 +129,13 @@ function Feed() {
     }
 
     return (
-        <View>
+        <SafeAreaView>
             <FlatList
             data={post}
             keyExtractor={(item) => item.id }
             renderItem={renderItem}
             />
-        </View>
+        </SafeAreaView>
     )
 }
 

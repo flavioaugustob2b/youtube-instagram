@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image } from 'react-native';
+import React, { Fragment } from 'react';
+import { TouchableOpacity , Image, View } from 'react-native';
 
 import { createAppContainer} from 'react-navigation';
 import { createStackNavigator} from 'react-navigation-stack';
@@ -12,10 +12,27 @@ import send from '../../assets/image/send.png';
 
 
 const MainNavigator = createStackNavigator({
+    // Feed: Feed
     Feed: Feed
 }, {
   defaultNavigationOptions: {
-    headerTitle: <Image source={camera} />
+    headerTitle: () => <Image source={logo} />,
+    headerLeft: () => (
+      <TouchableOpacity style={{ marginLeft: 20 }}>
+        <Image source={camera} />
+      </TouchableOpacity>
+    ),
+    headerRight: ()=> (
+      <View style={{ flexDirection: 'row', }}>
+        <TouchableOpacity style={{ marginRight: 20 }}>
+          <Image source={igtv} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{ marginRight: 20 }}>
+          <Image source={send} />
+        </TouchableOpacity>
+      </View>
+    )
+
   }
 });
 
